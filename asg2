@@ -4,9 +4,13 @@
 
 using namespace std;
 
+int mainMenu();
+
 int main (){
 	
-	string fileName = "Hello";
+	int option;
+	
+	string fileName = " ";
 	cout << "DNA Sequence Database Software\n" << endl; 
 	cout << "Specify the name of DNA sequence file names you would like to load. "; 
 	cout << "For multiple files, add a <<,>> between each file name. \n " << endl;
@@ -16,21 +20,37 @@ int main (){
 	ofstream fileOut;
 	
 	if (fileName == "chr1.fa")
-		fileIn.open("chra.fa",ios_base::in);
+		fileIn.open("chr1.fa",ios_base::in);
 	else if (fileName == "chr16.fa")
 		fileIn.open("chr16.fa",ios_base::in);
 	else if (fileName == "gnFOXF1.fa") 
 		fileIn.open("gnFOXF1.fa");
-	else if (fileName == "chr1.fa, chr16.fa") {
-		fileIn.open("chr1.fa", ios_base::in);
-		fileIn.open("chr16.fa",ios_base::in);
-	}
-	else if (fileName == "chr1.fa, gnFOXF1.fa") {
-		fileIn.open("chr1.fa", ios_base::in);
-		fileIn.open("gnFOXF1.fa",ios_base::in);
-	}
-	else if (fileName == "chr2.fa, gnFOXF1.fa")
 	else 
 		cout << "Wrong file name, Try again !" << endl;
+	
+	option = mainMenu();
+	
+	cout << char(option) <<endl;
 return 0;
+}
+
+int mainMenu() {
+	char selection = 0;
+	cout << "Select one of the following options" << endl;
+	cout << "(S) Summary statistics of the DNA database" << endl;
+	cout << "(1) Analyse DNA_sequence_1" << endl;
+	cout << "(2) Analyse DNA_sequence_2" << endl;
+	cout << "(3) Analyse DNA_sequence_3" << endl;
+	cout << "(4) Analyse DNA_sequence_4" << endl;
+	cout << "(Q) Quit" << endl;
+	
+if ((selection < 1) || (selection > 6) || ((selection!=53) && (selection!=81)))
+	{	char originalSelection;
+		cout << ">";
+		cin >> originalSelection;
+		selection=toupper(originalSelection);
+	}
+	cout << endl;
+	
+	return selection;
 }
