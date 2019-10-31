@@ -1,0 +1,36 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main (){
+	
+	string fileName = "Hello";
+	cout << "DNA Sequence Database Software\n" << endl; 
+	cout << "Specify the name of DNA sequence file names you would like to load. "; 
+	cout << "For multiple files, add a <<,>> between each file name. \n " << endl;
+	cout << ">";
+	cin >> fileName;
+	ifstream fileIn;
+	ofstream fileOut;
+	
+	if (fileName == "chr1.fa")
+		fileIn.open("chra.fa",ios_base::in);
+	else if (fileName == "chr16.fa")
+		fileIn.open("chr16.fa",ios_base::in);
+	else if (fileName == "gnFOXF1.fa") 
+		fileIn.open("gnFOXF1.fa");
+	else if (fileName == "chr1.fa, chr16.fa") {
+		fileIn.open("chr1.fa", ios_base::in);
+		fileIn.open("chr16.fa",ios_base::in);
+	}
+	else if (fileName == "chr1.fa, gnFOXF1.fa") {
+		fileIn.open("chr1.fa", ios_base::in);
+		fileIn.open("gnFOXF1.fa",ios_base::in);
+	}
+	else if (fileName == "chr2.fa, gnFOXF1.fa")
+	else 
+		cout << "Wrong file name, Try again !" << endl;
+return 0;
+}
