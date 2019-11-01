@@ -1,4 +1,4 @@
-	#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream> 
@@ -7,7 +7,6 @@
 
 using std::vector;
 using namespace std;
-
 int mainMenu();
 
 int main (){
@@ -32,11 +31,17 @@ int main (){
 	
 	while (sin.good()) {
 		getline (sin, outputString, ',');
-		fileNames.push_back(outputString);
-		cout << outputString<<endl;
+		ifstream fileIn (outputString);
+		if (fileIn)
+			fileNames.push_back(outputString);
+		else 
+			cout << "Can't open input file" << outputString << endl;
 	}
+
+	
+	
 	int a=fileNames.size();
-	cout<<a<<endl;
+	cout<<"The number of elements in the string is: " <<a<<endl;
 	
 	option = mainMenu();
 	cout << char(option) <<endl;
@@ -63,3 +68,4 @@ if ((selection < 1) || (selection > 6) || ((selection!=53) && (selection!=81)))
 	
 	return selection;
 }
+
