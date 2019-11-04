@@ -1,3 +1,5 @@
+
+  
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -30,12 +32,14 @@ int main (){
 
 	
 	while (sin.good()) {
+		cout << "Everything is good: " << sin.good() << endl;
 		getline (sin, outputString, ',');
 		ifstream fileIn (outputString);
 		if (fileIn)
 			fileNames.push_back(outputString);
 		else 
-			cout << "Can't open input file" << outputString << endl;
+			cout << "Can't open input file " << outputString << endl;
+		
 	}
 
 	
