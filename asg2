@@ -9,7 +9,6 @@ int mainMenu();
 int main (){
 	
 	int option;
-	int a;
 	string fileName = " ";
 	cout << "DNA Sequence Database Software\n" << endl; 
 	cout << "Specify the name of DNA sequence file names you would like to load. "; 
