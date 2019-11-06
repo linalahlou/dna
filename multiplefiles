@@ -13,7 +13,7 @@ int mainMenu();
 
 int main (){
 	
-	int option=0;
+	char option=0;
 	bool isStringValid=0;
 	string inputString= " ";
 	string outputString= " ";
@@ -48,7 +48,39 @@ int main (){
 	cout<<"The number of elements in the string is: " <<a<<endl;
 	
 	option = mainMenu();
-	cout << char(option) <<endl;
+	cout << "the option is "<< option <<endl;
+	
+	while (option!='Q') {
+		if (option == 'S') {
+			cout<< "The DNA Sequence Database holds " << a << " sequences." << endl;
+			cout<< "Sequence 1:\n"; 
+			/*for (int i = 1; i <= ; i++) {
+				if (fileNames[i]=="chr1.fa") {
+				cout<< "Name:\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun"<<endl;
+				}
+				else if (fileNames[i]=="chr16.fa"){ 
+				cout<< "Name:\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun"<<endl;
+				}
+				else if (fileNames[i]=="gnFOXF1.fa"){
+				cout<< "Name:\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun"<<endl;
+				}
+			}*/
+		}
+			
+		
+		else if (option == 1) {
+			cout << "option 1" << endl;
+		}
+		else if (option == 2) {
+			cout << "option 2" << endl;
+			}
+		else if (option == 3) {
+			cout << "option 3" << endl;
+			}
+		option=0;
+	} 
+	
+	cout << "option quit"<< endl;
 return 0;
 }
 
@@ -59,7 +91,6 @@ int mainMenu() {
 	cout << "(1) Analyse DNA_sequence_1" << endl;
 	cout << "(2) Analyse DNA_sequence_2" << endl;
 	cout << "(3) Analyse DNA_sequence_3" << endl;
-	cout << "(4) Analyse DNA_sequence_4" << endl;
 	cout << "(Q) Quit" << endl;
 	
 if ((selection < 1) || (selection > 6) || ((selection!=53) && (selection!=81)))
