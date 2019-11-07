@@ -53,18 +53,28 @@ int main (){
 	while (option!='Q') {
 		if (option == 'S') {
 			cout<< "The DNA Sequence Database holds " << a << " sequences." << endl;
-			cout<< "Sequence 1:\n"; 
-			/*for (int i = 1; i <= ; i++) {
-				if (fileNames[i]=="chr1.fa") {
-				cout<< "Name:\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun"<<endl;
+			auto itbegin = fileNames.begin();
+			auto itend = fileNames.end();
+			for (string & i : fileNames) { 
+				cout<< "Sequence "<< i << " :\n" << endl;
+				for (auto it = itbegin; it < itend; ++it) {
+					if (*it=="chr1.fa") {
+					cout << "Name " << i << " :\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun sequence"<<endl;
+					cout << "GID:\t528476670" << endl;
+					cout << "REF:\tNC_018912.2" << endl;
+					cout << "# base pairs:\t250522664" << endl;
+					}
+					else if (*it=="chr16.fa"){ 
+					cout<< "Name " << i << " :\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun sequence"<<endl;
+					cout << "GID:\t528476567" << endl;
+					cout << "REF:\tNC_018927.2" << endl;
+					cout << "# base pairs:\t91765909" << endl;
+					}
+					else if (*it=="gnFOXF1.fa"){
+					cout<< "Name " << i << " :\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun sequence"<<endl;
+					}
 				}
-				else if (fileNames[i]=="chr16.fa"){ 
-				cout<< "Name:\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun"<<endl;
-				}
-				else if (fileNames[i]=="gnFOXF1.fa"){
-				cout<< "Name:\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun"<<endl;
-				}
-			}*/
+			}
 		}
 			
 		
