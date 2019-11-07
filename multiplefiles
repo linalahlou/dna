@@ -9,7 +9,7 @@
 
 using std::vector;
 using namespace std;
-int mainMenu();
+int mainMenu(vector<string>& fileNames);
 
 int main (){
 	
@@ -47,7 +47,7 @@ int main (){
 	int a=fileNames.size();
 	cout<<"The number of elements in the string is: " <<a<<endl;
 	
-	option = mainMenu();
+	option = mainMenu(fileNames);
 	cout << "the option is "<< option <<endl;
 	
 	while (option!='Q') {
@@ -55,7 +55,7 @@ int main (){
 			cout<< "The DNA Sequence Database holds " << a << " sequences." << endl;
 			auto itbegin = fileNames.begin();
 			auto itend = fileNames.end();
-			for (string & i : fileNames) { 
+			for (int i = 0; i++; i < fileNames.size()) { 
 				cout<< "Sequence "<< i << " :\n" << endl;
 				for (auto it = itbegin; it < itend; ++it) {
 					if (*it=="chr1.fa") {
@@ -71,7 +71,7 @@ int main (){
 					cout << "# base pairs:\t91765909" << endl;
 					}
 					else if (*it=="gnFOXF1.fa"){
-					cout<< "Name " << i << " :\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun sequence"<<endl;
+					cout<< "Name " << i << " :\t" << "Genome FOX F1"<<endl;
 					}
 				}
 			}
@@ -94,22 +94,25 @@ int main (){
 return 0;
 }
 
-int mainMenu() {
+int mainMenu(vector<string>& fileNames) {
 	char selection = 0;
+	auto itbeg = fileNames.begin();
+	auto iten = fileNames.end();
+	
 	cout << "Select one of the following options" << endl;
 	cout << "(S) Summary statistics of the DNA database" << endl;
-	cout << "(1) Analyse DNA_sequence_1" << endl;
-	cout << "(2) Analyse DNA_sequence_2" << endl;
-	cout << "(3) Analyse DNA_sequence_3" << endl;
+	for (auto it = itbeg; it < iten; ++it) {
+		cout << "(1) Analyse " << *it << endl;
+	}
 	cout << "(Q) Quit" << endl;
 	
-if ((selection < 1) || (selection > 6) || ((selection!=53) && (selection!=81)))
-	{	char originalSelection;
-		cout << ">";
-		cin >> originalSelection;
-		selection=toupper(originalSelection);
-	}
-	cout << endl;
+	if ((selection < 1) || (selection > 6) || ((selection!=53) && (selection!=81)))
+		{	char originalSelection;
+			cout << ">";
+			cin >> originalSelection;
+			selection=toupper(originalSelection);
+		}
+		cout << endl;
 	
 	return selection;
 }
