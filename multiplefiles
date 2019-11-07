@@ -52,14 +52,14 @@ int main (){
 	
 	while (option!='Q') {
 		if (option == 'S') {
-			cout<< "The DNA Sequence Database holds " << a << " sequences." << endl;
+			cout<< "The DNA Sequence Database holds " << a << " sequence." << endl;
 			auto itbegin = fileNames.begin();
 			auto itend = fileNames.end();
-			for (int i = 0; i++; i < fileNames.size()) { 
-				cout<< "Sequence "<< i << " :\n" << endl;
+			for (int i = 0; i < fileNames.size(); i++) { 
+				cout<< "Sequence "<< i+1 << " :\n" << endl;
 				for (auto it = itbegin; it < itend; ++it) {
 					if (*it=="chr1.fa") {
-					cout << "Name " << i << " :\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun sequence"<<endl;
+					cout << "Name :\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun sequence"<<endl;
 					cout << "GID:\t528476670" << endl;
 					cout << "REF:\tNC_018912.2" << endl;
 					cout << "# base pairs:\t250522664" << endl;
