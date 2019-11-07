@@ -64,19 +64,20 @@ int main (){
 					cout << "Name :\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun sequence"<<endl;
 					cout << "GID:\t528476670" << endl;
 					cout << "REF:\tNC_018912.2" << endl;
-					cout << "# base pairs:\t250522664" << endl;
+					cout << "# base pairs:\t250522664\n\n" << endl;
 					}
 					else if (*it=="chr16.fa"){ 
 					cout<< "Name " << i << " :\t" << "Homo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun sequence"<<endl;
 					cout << "GID:\t528476567" << endl;
 					cout << "REF:\tNC_018927.2" << endl;
-					cout << "# base pairs:\t91765909" << endl;
+					cout << "# base pairs:\t91765909\n\n" << endl;
 					}
 					else if (*it=="gnFOXF1.fa"){
-					cout<< "Name " << i << " :\t" << "Genome FOX F1"<<endl;
+					cout<< "Name " << i << " :\t" << "Genome FOX F1\n\n"<<endl;
 					}
 				}
 			}
+			option = mainMenu(fileNames);
 		}
 			
 		
@@ -89,6 +90,15 @@ int main (){
 				cout << "S Strong interaction (C or G)\nW Weak interaction (A or T)\nH Not-G (A or C or T) H follows G in the alphabet\nB Not-A (C or G or T) B follows A in the alphabet\nV Not-T (not-U) (A or C or G) V follows U in the alphabet" << endl;
 				cout << "D Not-C (A or G or T) D follows C in the alphabet\nN Any (A or C or G or T)\n\n" << endl;
 				subOption = subMenu();
+			}
+			else if (subOption=='S'){
+				cout << "Sequence identifiers:\nName:\tHomo sapiens chromosome 1, alternate assembly CHM1_1.1, whole genome shotgun\nsequence\nGID: 528476670\nREF: NC_018912.2\n\n" << endl;
+				cout << "Region characteristics:\n# regions: 6305\n# N regions: 3153\n# C regions: 3152\n\n" << endl;
+				cout << "Base pair characteristics:\n# base pairs: 250522664\nG: 47434131\nA: 66127181\nT: 66204528\nC: 47449501\nR: 0\nY: 0\nM: 0\nK: 0\nS: 0\nW: 0\nH: 0\nB: 0\nV: 0\nD: 0\nN: 23307323\nUnknown: 0\n\n" << endl;
+				subOption = subMenu();
+			}
+			else if (subOption=='R') {
+				option = mainMenu(fileNames);
 			}
 		}
 		else if (option == '2') {
@@ -110,6 +120,7 @@ int main (){
 				cout << "D Not-C (A or G or T) D follows C in the alphabet\nN Any (A or C or G or T)\n\n" << endl;
 				subOption = subMenu();
 			}
+		
 			}
 		option=0;
 	} 
