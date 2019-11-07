@@ -10,6 +10,7 @@
 using std::vector;
 using namespace std;
 int mainMenu(vector<string>& fileNames);
+int subMenu();
 
 int main (){
 	
@@ -17,6 +18,7 @@ int main (){
 	bool isStringValid=0;
 	string inputString= " ";
 	string outputString= " ";
+	int subOption=0;
 	vector<string> fileNames;
 	
 	
@@ -78,14 +80,36 @@ int main (){
 		}
 			
 		
-		else if (option == 1) {
+		else if (option == '1') {
 			cout << "option 1" << endl;
-		}
-		else if (option == 2) {
-			cout << "option 2" << endl;
+			subOption = subMenu();
+			cout << "the suboption is "<< option <<endl;
+			if (subOption=='H') {
+				cout << "Code Base Description \nG Guanine \nA Adenine \nT Thymine (Uracil in RNA) \nC Cytosine\nR Purine (A or G)\nY Pyrimidine (C or T or U)M Amino (A or C)\nK Ketone (G or T)" << endl;
+				cout << "S Strong interaction (C or G)\nW Weak interaction (A or T)\nH Not-G (A or C or T) H follows G in the alphabet\nB Not-A (C or G or T) B follows A in the alphabet\nV Not-T (not-U) (A or C or G) V follows U in the alphabet" << endl;
+				cout << "D Not-C (A or G or T) D follows C in the alphabet\nN Any (A or C or G or T)\n\n" << endl;
+				subOption = subMenu();
 			}
-		else if (option == 3) {
+		}
+		else if (option == '2') {
+			cout << "option 2" << endl;
+			subOption = subMenu();
+			if (subOption=='H') {
+				cout << "Code Base Description \nG Guanine \nA Adenine \nT Thymine (Uracil in RNA) \nC Cytosine\nR Purine (A or G)\nY Pyrimidine (C or T or U)M Amino (A or C)\nK Ketone (G or T)" << endl;
+				cout << "S Strong interaction (C or G)\nW Weak interaction (A or T)\nH Not-G (A or C or T) H follows G in the alphabet\nB Not-A (C or G or T) B follows A in the alphabet\nV Not-T (not-U) (A or C or G) V follows U in the alphabet" << endl;
+				cout << "D Not-C (A or G or T) D follows C in the alphabet\nN Any (A or C or G or T)\n\n" << endl;
+				subOption = subMenu();
+			}
+			}
+		else if (option == '3') {
 			cout << "option 3" << endl;
+			subOption = subMenu();
+			if (subOption=='H') {
+				cout << "Code Base Description \nG Guanine \nA Adenine \nT Thymine (Uracil in RNA) \nC Cytosine\nR Purine (A or G)\nY Pyrimidine (C or T or U)M Amino (A or C)\nK Ketone (G or T)" << endl;
+				cout << "S Strong interaction (C or G)\nW Weak interaction (A or T)\nH Not-G (A or C or T) H follows G in the alphabet\nB Not-A (C or G or T) B follows A in the alphabet\nV Not-T (not-U) (A or C or G) V follows U in the alphabet" << endl;
+				cout << "D Not-C (A or G or T) D follows C in the alphabet\nN Any (A or C or G or T)\n\n" << endl;
+				subOption = subMenu();
+			}
 			}
 		option=0;
 	} 
@@ -117,3 +141,26 @@ int mainMenu(vector<string>& fileNames) {
 	return selection;
 }
 
+int subMenu() {
+	char subSelection=0;
+	cout << "Select one of the following options" << endl;
+	cout << "(H) Help" << endl;
+	cout << "(S) Summary statistics of the DNA sequence" << endl;
+	cout << "(1) Analyse gap region" << endl;
+	cout << "(2) Analyse coded region" << endl;
+	cout << "(3) Analyse base pair range" << endl;
+	cout << "(4) Find DNA sequence by manual input" << endl;
+	cout << "(5) Find DNA sequence by file input" << endl;
+	cout << "(R) Return to the previous menu" << endl;
+	cout << "(Q) Quit" << endl;
+	
+	if ((subSelection < 1) || (subSelection > 5) || ((subSelection!=53) && (subSelection!=81) && (subSelection!=82)))
+		{	char lowsubSelection;
+			cout << ">";
+			cin >> lowsubSelection;
+			subSelection=toupper(lowsubSelection);
+		}
+		cout << endl;
+	
+	return subSelection;
+}
